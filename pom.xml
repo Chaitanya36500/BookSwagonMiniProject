@@ -168,6 +168,7 @@
                 <configuration>
                          <suiteXmlFiles>
                                   <suiteXmlFile>testng.xml</suiteXmlFile>
+                         </suiteXmlFiles>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                     <encoding>UTF-8</encoding>
