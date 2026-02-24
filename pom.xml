@@ -166,6 +166,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
+                         <suiteXmlFiles>
+                                  <suiteXmlFile>testng.xml</suiteXmlFile>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                     <encoding>UTF-8</encoding>
@@ -175,10 +177,12 @@
                 </configuration>
             </plugin>
 
+                     
+
             <!-- Ensure TestNG tests run via Surefire -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.plugin.version}</version>
+                <version>3.2.5</version>
                 <configuration>
                     <!-- If you have testng.xml, Surefire will use it -->
                     <suiteXmlFiles>
