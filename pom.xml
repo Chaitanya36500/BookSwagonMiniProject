@@ -1,0 +1,202 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--    <modelVersion>4.0.0</modelVersion>-->
+
+<!--    <groupId>org.example</groupId>-->
+<!--    <artifactId>BookSwagonMiniProject</artifactId>-->
+<!--    <version>1.0-SNAPSHOT</version>-->
+
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>org.seleniumhq.selenium</groupId>-->
+<!--            <artifactId>selenium-java</artifactId>-->
+<!--            <version>4.39.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Source: https://mvnrepository.com/artifact/org.apache.poi/poi &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi</artifactId>-->
+<!--            <version>5.5.1</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Source: https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-ooxml</artifactId>-->
+<!--            <version>5.5.1</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.testng</groupId>-->
+<!--            <artifactId>testng</artifactId>-->
+<!--            <version>7.8.0</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; Source: https://mvnrepository.com/artifact/commons-io/commons-io &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>commons-io</groupId>-->
+<!--            <artifactId>commons-io</artifactId>-->
+<!--            <version>2.21.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-api &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-api</artifactId>-->
+<!--            <version>2.0.17</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+<!--    </dependencies>-->
+<!--    <properties>-->
+<!--        <maven.compiler.source>25</maven.compiler.source>-->
+<!--        <maven.compiler.target>25</maven.compiler.target>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--    </properties>-->
+
+<!--</project>-->
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Cognizant</groupId>
+    <artifactId>beta</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- Centralized versions -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- Use stable, widely-used versions -->
+        <selenium.version>4.25.0</selenium.version>
+        <testng.version>7.11.0</testng.version>
+        <poi.version>5.2.5</poi.version>
+        <commons.io.version>2.15.1</commons.io.version>
+        <webdrivermanager.version>5.9.2</webdrivermanager.version>
+        <slf4j.version>2.0.12</slf4j.version>
+        <log4j2.version>2.22.1</log4j2.version>
+        <surefire.plugin.version>3.2.5</surefire.plugin.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Selenium (Selenium Manager included in 4.6+; 4.25.0 is stable) -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Apache POI (core + OOXML) -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <!-- Commons IO (needed for FileUtils in ScreenshotUtil) -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+        <!-- TestNG (scope=test). This is what provides ITestResult/ITestListener -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Optional: WebDriverManager (keep only if you need it explicitly).
+             Selenium Manager makes this unnecessary in most setups. -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <!-- Logging: SLF4J API + Log4j2 binding (binds slf4j to log4j2) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+        <!-- Bridge SLF4J -> Log4j2 (so slf4j logs go to log4j2) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Set Java version -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <!-- Ensure TestNG tests run via Surefire -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.plugin.version}</version>
+                <configuration>
+                    <!-- If you have testng.xml, Surefire will use it -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <!-- Ensure TestNG is the chosen framework even without suite -->
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value></value>
+                        </property>
+                    </properties>
+                    <useSystemClassLoader>true</useSystemClassLoader>
+                    <trimStackTrace>true</trimStackTrace>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
+
